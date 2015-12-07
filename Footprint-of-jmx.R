@@ -1,0 +1,5 @@
+library(REmap)
+data<-read.csv('E:\\Rworkspace\\Footprint-of-jmx\\Footprint-of-jmx.csv')
+set.seed(521)
+map<-remap(data,title = 'Footprint-of-jmx',subtitle = '15年的足迹',theme = get_theme('Dark'))
+plot(map)
