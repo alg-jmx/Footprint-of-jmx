@@ -1,0 +1,180 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+  <style type="text/css">
+  body {
+  margin: 0;
+  }
+  #main {
+  height: 100%;
+  }
+  </style>
+  </head>
+  <body>
+  <div id="main"></div>
+  <script src="./js/echarts.js"></script>
+  <script src = "./js/echarts-all.js"></script>
+  <script>
+  var myChart = echarts.init(document.getElementById("main"));
+  
+  var options = 
+{
+  backgroundColor: '#1b1b1b', 
+  color: ['gold','aqua','lime'],
+  title : {
+  text: 'Footprint-of-jmx', 
+  subtext:'15年的足迹', 
+  x:'center',
+  textStyle : {
+  color: '#fff'  
+  }
+  },
+  tooltip : {
+  trigger: 'item',
+  formatter: '{b}'
+  },
+  toolbox: {
+  show : true,
+  orient : 'vertical',
+  x: 'right',
+  y: 'center',
+  feature : {
+  mark : {show: true},
+  dataView : {show: true, readOnly: false},
+  restore : {show: true},
+  saveAsImage : {show: true}
+  }
+  },
+  dataRange: {
+  min : 0,
+  show: false,
+  max : 100,
+  y: '60%',
+  calculable : true,
+  color: ['#ff3333', 'orange', 'yellow','lime','aqua']
+  },
+  
+  series : [
+  {
+  type:'map',
+  itemStyle:{
+  normal:{
+  borderColor:'rgba(100,149,237,1)', 
+  borderWidth: 0.5,
+  areaStyle:{
+  color: '#1b1b1b'  
+  }
+  }
+  },
+  data:[],
+  geoCoord: {'北京': [116.4136,39.91101],
+'长春': [125.3302,43.82178],
+'郑州': [113.6313,34.75349],
+'磐石': [126.0671,42.95224],
+'上海': [121.4802,31.23631],
+'孝感': [113.9230,30.93071],
+'信阳': [114.0993,32.15319]},
+  
+  markLine : {
+  smooth:true,
+  effect : {
+  show: true,
+  scaleSize: 1,
+  period: 30,
+  color: '#fff',
+  shadowBlur: 10
+  },
+  itemStyle : {
+  color: 'red',
+  normal: {
+  borderWidth:1,
+  lineStyle: {
+  type: 'solid',
+  shadowBlur: 10
+  },
+  label:{show:false}
+  }
+  },
+  
+  data : [
+  [{name:'北京'}, {name:'长春',value:100}],
+[{name:'长春'}, {name:'北京',value: 70}],
+[{name:'郑州'}, {name:'北京',value:  0}],
+[{name:'北京'}, {name:'郑州',value: 20}],
+[{name:'北京'}, {name:'郑州',value: 90}],
+[{name:'北京'}, {name:'郑州',value: 60}],
+[{name:'郑州'}, {name:'北京',value: 90}],
+[{name:'北京'}, {name:'磐石',value: 70}],
+[{name:'磐石'}, {name:'北京',value: 60}],
+[{name:'北京'}, {name:'郑州',value: 10}],
+[{name:'郑州'}, {name:'北京',value:  0}],
+[{name:'郑州'}, {name:'北京',value: 80}],
+[{name:'北京'}, {name:'长春',value: 70}],
+[{name:'长春'}, {name:'北京',value:100}],
+[{name:'上海'}, {name:'郑州',value:  0}],
+[{name:'孝感'}, {name:'郑州',value:  0}],
+[{name:'北京'}, {name:'郑州',value: 30}],
+[{name:'北京'}, {name:'郑州',value: 30}],
+[{name:'郑州'}, {name:'信阳',value: 60}],
+[{name:'郑州'}, {name:'孝感',value: 40}],
+[{name:'孝感'}, {name:'郑州',value: 40}],
+[{name:'郑州'}, {name:'北京',value: 60}],
+[{name:'郑州'}, {name:'北京',value: 80}],
+[{name:'孝感'}, {name:'郑州',value: 60}],
+[{name:'郑州'}, {name:'信阳',value: 10}],
+[{name:'长春'}, {name:'磐石',value: 80}],
+[{name:'磐石'}, {name:'长春',value: 10}]
+  ]
+  },
+  markPoint : {
+  symbol:'emptyCircle',
+  symbolSize : function (v){
+  return 10 + v/10
+  },
+  effect : {
+  show: true,
+  shadowBlur : 0
+  },
+  itemStyle:{
+  normal:{
+  label:{show:true}
+  }
+  },
+  data : [
+  {name:'长春',value:100},
+{name:'北京',value: 70},
+{name:'北京',value:  0},
+{name:'郑州',value: 20},
+{name:'郑州',value: 90},
+{name:'郑州',value: 60},
+{name:'北京',value: 90},
+{name:'磐石',value: 70},
+{name:'北京',value: 60},
+{name:'郑州',value: 10},
+{name:'北京',value:  0},
+{name:'北京',value: 80},
+{name:'长春',value: 70},
+{name:'北京',value:100},
+{name:'郑州',value:  0},
+{name:'郑州',value:  0},
+{name:'郑州',value: 30},
+{name:'郑州',value: 30},
+{name:'信阳',value: 60},
+{name:'孝感',value: 40},
+{name:'郑州',value: 40},
+{name:'北京',value: 60},
+{name:'北京',value: 80},
+{name:'郑州',value: 60},
+{name:'信阳',value: 10},
+{name:'磐石',value: 80},
+{name:'长春',value: 10}
+  ]	
+  }
+  }
+  ]
+  }
+;
+  myChart.setOption(options);	
+  </script>
+  </body>
+  </html>
